@@ -125,6 +125,15 @@ namespace microbrowser
             }
         }
 
-        
+        private void RecordDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedRecords = RecordDataGrid.SelectedItems.Cast<Record>().ToList();
+            StatusTextBlock.Text = $"共選取 {selectedRecords.Count} 筆資料";
+        }
+
+        private void RecordDataGrid_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.Header = e.Row.GetIndex() + 1;
+        }
     }
 }
