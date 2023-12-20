@@ -43,7 +43,8 @@ namespace microbrowser
             StatusTextBlock.Text = $"共有 {records.Count} 筆資料";
             DisplayAQIData();
         }
-
+        //中間勾選欄基礎設定
+        //字形設定
         private void DisplayAQIData()
         {
             RecordDataGrid.ItemsSource = records;
@@ -74,7 +75,8 @@ namespace microbrowser
                 }
             }
         }
-
+        //圖表區相關設定
+        //註解欄
         private void UpdateChart(object sender, RoutedEventArgs e)
         {
             seriesCollection.Clear();
@@ -124,11 +126,11 @@ namespace microbrowser
                 return $"發生錯誤: {ex.Message}";
             }
         }
-
+        //資料總攬
         private void RecordDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedRecords = RecordDataGrid.SelectedItems.Cast<Record>().ToList();
-            StatusTextBlock.Text = $"共選取 {selectedRecords.Count} 筆資料";
+            StatusTextBlock.Text = $"共選取 {selectedRecords.Count} 筆資料";//計數欄資更新
         }
 
         private void RecordDataGrid_LoadingRow(object sender, DataGridRowEventArgs e)
